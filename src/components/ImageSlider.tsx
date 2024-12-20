@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
 const images = [
-  { src: "/books.JPG", alt: "Kan Lab Research" },
-  { src: "/lecture.JPG", alt: "Kan Lab Research" },
-  { src: "/nameplate.JPG", alt: "Kan Lab Research" },
-  { src: "/seminar.JPG", alt: "Kan Lab Research" },
-  { src: "/support_desk.JPG", alt: "Kan Lab Research" },
-  { src: "/thesis.JPG", alt: "Kan Lab Research" },
+  { src: "books.JPG", alt: "Kim Lab Research" },
+  { src: "lecture.JPG", alt: "Kim Lab Research" },
+  { src: "nameplate.JPG", alt: "Kim Lab Research" },
+  { src: "seminar.JPG", alt: "Kim Lab Research" },
+  { src: "support_desk.JPG", alt: "Kim Lab Research" },
+  { src: "thesis.JPG", alt: "Kim Lab Research" },
 ];
 
 export default function ImageSlider() {
