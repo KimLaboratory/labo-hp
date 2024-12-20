@@ -1,8 +1,8 @@
-import Navbar from './components/Navbar'
-import ImageSlider from './components/ImageSlider'
-import Introduction from './components/Introduction'
-import ResearchAreas from './components/ResearchAreas'
-import AboutLab from './components/AboutLab'
+import Navbar from "./components/Navbar";
+import ImageSlider from "./components/ImageSlider";
+import Introduction from "./components/Introduction";
+import ResearchAreas from "./components/ResearchAreas";
+import AboutLab from "./components/AboutLab";
 
 export default function App() {
   return (
@@ -17,5 +17,5 @@ export default function App() {
         </div>
       </div>
     </main>
-  )
+  );
 }

@@ -50,6 +50,6 @@ jobs:
   deploy:
     name: Deploy
     needs: check-merge
-      if: needs.check-merge.outputs.merged == 'true'
+    if: needs.check-merge.outputs.merged == 'true'
     uses: ./.github/workflows/auto_deploy.yml
     secrets: inherit
