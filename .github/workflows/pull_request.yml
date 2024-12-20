@@ -5,6 +5,18 @@ on:
     types: [opened, synchronize, close]
 
 jobs:
+  check-merge:
+    name: Check Merge
+    runs-on: ubuntu-latest
+    outputs:
+      merged: ${{ steps.merge_check.outputs.merged }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Check if merged
+        id: merge_check
+        run: echo "::set-output name=merged::$(if [ '${{ github.event.pull_request.merged }}' == 'true' ]; then echo 'true'; else echo 'false'; fi)"
+
   format:
     name: Format
     runs-on: ubuntu-latest
