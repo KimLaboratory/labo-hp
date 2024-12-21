@@ -65,12 +65,12 @@ export default function ITSupportDesk() {
           場所 : 2号館3階 2302室
         </p>
         <div className="bg-white p-4 rounded-lg shadow overflow-x-auto">
-          <div className="grid grid-cols-7 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-2">
             {Object.entries(weeklySchedule).map(([day, slots]) => (
               <div key={day} className="text-center">
                 <div className="font-medium mb-2">{day}</div>
                 <div
-                  className={`p-8 rounded ${slots.length > 0 ? "bg-green-100" : "bg-gray-100"}`}
+                  className={`p-6 rounded h-24 overflow-y-auto flex items-center justify-center ${slots.length > 0 ? "bg-green-100" : "bg-gray-100"}`}
                 >
                   {slots.length > 0 ? (
                     slots.map((slot, index) => (
@@ -90,20 +90,6 @@ export default function ITSupportDesk() {
 
       <section className="pb-6">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
-          担当者
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {supportStaff.map((staff, index) => (
-            <div key={index} className="bg-white p-4 rounded-lg shadow">
-              <h3 className="text-lg font-medium">{staff.name}</h3>
-              <p className="text-sm text-gray-600">{staff.role}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="pb-6">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
           サポート内容
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -111,6 +97,20 @@ export default function ITSupportDesk() {
             <div key={index} className="bg-white p-4 rounded-lg shadow">
               <h3 className="text-base font-medium mb-2">{service.title}</h3>
               <p className="text-sm text-gray-600">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="pb-6">
+        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
+          担当者
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {supportStaff.map((staff, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg shadow">
+              <h3 className="text-lg font-medium">{staff.name}</h3>
+              <p className="text-sm text-gray-600">{staff.role}</p>
             </div>
           ))}
         </div>
