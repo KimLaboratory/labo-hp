@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "PastResearch", href: "/#/past-research" },
-  { name: "ITSupportDesk", href: "/#/it-support-desk" },
-  { name: "Information", href: "/#/information" },
+  { name: "Home", href: "/proto-hp/" },
+  { name: "PastResearch", href: "/proto-hp/#/past-research" },
+  { name: "ITSupportDesk", href: "/proto-hp/#/it-support-desk" },
+  { name: "Information", href: "/proto-hp/#/information" },
 ];
 
 export default function Navbar() {
