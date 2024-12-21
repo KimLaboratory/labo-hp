@@ -1,31 +1,11 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-function smoothScroll(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
-  e.preventDefault();
-  if (href === "/") {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-    window.history.pushState("", "", href);
-    return;
-  }
-  const targetId = href.replace(/.*#/, "");
-  const elem = document.getElementById(targetId);
-  if (elem) {
-    elem.scrollIntoView({ behavior: "smooth" });
-  }
-  window.history.pushState("", "", href);
-}
-
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Research", href: "#research" },
-  { name: "About", href: "#about" },
-  //   { name: 'Publications', href: '#publications' },
-  //   { name: 'Team', href: '#team' },
-  //   { name: 'Contact', href: '#contact' },
+  { name: "PastResearch", href: "/#/past-research" },
+  { name: "ITSupportDesk", href: "/#/it-support-desk" },
+  { name: "Information", href: "/#/information" },
 ];
 
 export default function Navbar() {
@@ -46,7 +26,6 @@ export default function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => smoothScroll(e, item.href)}
                   className="text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
                 >
                   {item.name}
@@ -76,10 +55,6 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                onClick={(e) => {
-                  smoothScroll(e, item.href);
-                  setIsOpen(false);
-                }}
                 className="text-gray-700 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium"
               >
                 {item.name}

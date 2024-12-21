@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
 const images = [
-  { src: "books.JPG", alt: "Kim Lab Research" },
   { src: "lecture.JPG", alt: "Kim Lab Research" },
-  { src: "nameplate.JPG", alt: "Kim Lab Research" },
   { src: "seminar.JPG", alt: "Kim Lab Research" },
-  { src: "support_desk.JPG", alt: "Kim Lab Research" },
   { src: "thesis.JPG", alt: "Kim Lab Research" },
+  { src: "books.JPG", alt: "Kim Lab Research" },
+  { src: "nameplate.JPG", alt: "Kim Lab Research" },
+  { src: "support_desk.JPG", alt: "Kim Lab Research" },
 ];
 
 export default function ImageSlider() {
@@ -21,7 +21,7 @@ export default function ImageSlider() {
   }, []);
 
   return (
-    <div className="relative w-full" style={{ paddingTop: "40%" }}>
+    <div className="relative w-full" style={{ paddingTop: "30%" }}>
       {images.map((image, index) => (
         <img
           key={image.src}
