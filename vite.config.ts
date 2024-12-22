@@ -1,13 +1,13 @@
 import { defineConfig } from "vite";
-import Sitemap from 'vite-plugin-sitemap'
+import Sitemap from "vite-plugin-sitemap";
 import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-	react(),
-	Sitemap({
-		hostname: 'https://www.kim-laboratory.net/',
-	})
-  ]
+    react(),
+    Sitemap({
+      hostname: "https://www.kim-laboratory.net/",
+    }),
+  ],
 });
