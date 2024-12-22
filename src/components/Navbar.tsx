@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { name: "Home", href: "/proto-hp/" },
-  { name: "PastResearch", href: "/proto-hp/#/past-research" },
-  { name: "ITSupportDesk", href: "/proto-hp/#/it-support-desk" },
-  { name: "Information", href: "/proto-hp/#/information" },
+  { name: "Home", href: "/" },
+  { name: "PastResearch", href: "/#/past-research" },
+  { name: "ITSupportDesk", href: "/#/it-support-desk" },
+  { name: "Information", href: "/#/information" },
 ];
 
 export default function Navbar() {
@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="/proto-hp/" className="flex-shrink-0">
+            <a href="/" className="flex-shrink-0">
               <span className="text-2xl font-bold text-gray-900">Kim Lab</span>
             </a>
           </div>
