@@ -14,21 +14,21 @@ function HomePage() {
     <main className="min-h-screen relative overflow-x-hidden flex flex-col">
       {/* パーティクル背景 */}
       <ParticleBackground />
-      
+
       {/* 装飾的な背景グラデーション */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -z-5 opacity-60"></div>
       <div className="absolute top-40 left-20 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl -z-5 opacity-60"></div>
       <div className="absolute bottom-20 right-20 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl -z-5 opacity-60"></div>
-      
+
       <Navbar />
       <ImageSlider />
-      
+
       <div className="container mx-auto px-4 py-8 flex-grow relative z-1">
         <Introduction />
         <ResearchAreas />
         <AboutLab />
       </div>
-      
+
       <footer className="py-8 nav-glassmorphism mt-auto relative z-10">
         <div className="container mx-auto px-6">
           <div className="text-center">
