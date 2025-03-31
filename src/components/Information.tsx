@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 type InfoItem = {
   title: string;
   date: string;
@@ -27,8 +29,38 @@ const infoItems: InfoItem[] = [
 ];
 
 export default function Information() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div 
+      ref={sectionRef} 
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
       {infoItems.map((item, index) => {
         const isExternalLink = item.link.startsWith("http");
         const link = isExternalLink
@@ -36,13 +68,19 @@ export default function Information() {
           : import.meta.env.BASE_URL + item.link;
 
         return (
-          <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
-            <p className="text-xs text-gray-500 mb-1">{item.date}</p>
-            <p className="text-sm text-gray-600 mb-3">{item.summary}</p>
+          <div 
+            key={index} 
+            className={`glassmorphism p-6 transition-all duration-1000 ease-out transform ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+            }`}
+            style={{ transitionDelay: `${index * 150}ms` }}
+          >
+            <h2 className="text-xl font-semibold mb-2 text-white">{item.title}</h2>
+            <p className="text-xs text-gray-400 mb-2">{item.date}</p>
+            <p className="text-sm text-gray-300 mb-4">{item.summary}</p>
             <button
               onClick={() => window.open(link, "_blank", "noopener noreferrer")}
-              className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105 duration-200 text-xs"
+              className="flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-2 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105 duration-300 text-sm neon-border"
             >
               <svg
                 className="w-4 h-4 mr-2"

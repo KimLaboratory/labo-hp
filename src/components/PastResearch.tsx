@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 type Research = {
@@ -102,8 +102,33 @@ const researchData: Research[] = [
 export default function PastResearch() {
   const [expandedYears, setExpandedYears] = useState<number[]>([
     researchData[0].year,
-    researchData[1].year,
   ]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.disconnect();
+      }
+    };
+  }, []);
 
   const toggleYear = (year: number) => {
     setExpandedYears((prev) =>
@@ -112,32 +137,40 @@ export default function PastResearch() {
   };
 
   return (
-    <div className="space-y-4">
-      {researchData.map((research) => (
+    <div ref={sectionRef} className="space-y-6">
+      {researchData.map((research, idx) => (
         <div
           key={research.year}
-          className="bg-white rounded-lg shadow-md overflow-hidden"
+          className={`glassmorphism overflow-hidden transition-all duration-1000 transform ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+          }`}
+          style={{ transitionDelay: `${idx * 150}ms` }}
         >
           <button
             onClick={() => toggleYear(research.year)}
-            className="w-full px-4 py-3 flex justify-between items-center bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
+            className="w-full px-6 py-4 flex justify-between items-center hover:bg-white/10 transition-colors duration-200"
           >
-            <span className="text-xl font-semibold">{research.year}年度</span>
+            <span className="text-xl font-semibold text-white">{research.year}年度</span>
             {expandedYears.includes(research.year) ? (
-              <ChevronUp className="w-5 h-5" />
+              <ChevronUp className="w-5 h-5 text-blue-400" />
             ) : (
-              <ChevronDown className="w-5 h-5" />
+              <ChevronDown className="w-5 h-5 text-blue-400" />
             )}
           </button>
           {expandedYears.includes(research.year) && (
-            <div className="p-4 space-y-4">
+            <div className="p-6 space-y-5">
               {research.items.map((item, index) => (
-                <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-1">{item.name}</h3>
-                  <h4 className="text-base font-medium mb-4 text-gray-900">
+                <div 
+                  key={index} 
+                  className="glassmorphism p-5 bg-white/5"
+                >
+                  <h3 className="text-xl font-semibold mb-2 text-white">{item.name}</h3>
+                  <h4 className="text-base font-medium mb-4 text-blue-300">
                     {item.title}
                   </h4>
-                  <p className="text-sm text-gray-600">{item.content}</p>
+                  {item.content && (
+                    <p className="text-sm text-gray-300">{item.content}</p>
+                  )}
                 </div>
               ))}
             </div>
