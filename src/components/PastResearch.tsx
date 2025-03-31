@@ -116,13 +116,13 @@ export default function PastResearch() {
       },
       {
         threshold: 0.1,
-      }
+      },
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       if (sectionRef.current) {
         observer.disconnect();
@@ -150,7 +150,9 @@ export default function PastResearch() {
             onClick={() => toggleYear(research.year)}
             className="w-full px-6 py-4 flex justify-between items-center hover:bg-white/10 transition-colors duration-200"
           >
-            <span className="text-xl font-semibold text-white">{research.year}年度</span>
+            <span className="text-xl font-semibold text-white">
+              {research.year}年度
+            </span>
             {expandedYears.includes(research.year) ? (
               <ChevronUp className="w-5 h-5 text-blue-400" />
             ) : (
@@ -160,11 +162,10 @@ export default function PastResearch() {
           {expandedYears.includes(research.year) && (
             <div className="p-6 space-y-5">
               {research.items.map((item, index) => (
-                <div 
-                  key={index} 
-                  className="glassmorphism p-5 bg-white/5"
-                >
-                  <h3 className="text-xl font-semibold mb-2 text-white">{item.name}</h3>
+                <div key={index} className="glassmorphism p-5 bg-white/5">
+                  <h3 className="text-xl font-semibold mb-2 text-white">
+                    {item.name}
+                  </h3>
                   <h4 className="text-base font-medium mb-4 text-blue-300">
                     {item.title}
                   </h4>

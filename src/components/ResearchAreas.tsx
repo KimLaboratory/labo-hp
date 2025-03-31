@@ -57,7 +57,7 @@ export default function ResearchAreas() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -68,13 +68,13 @@ export default function ResearchAreas() {
       },
       {
         threshold: 0.1,
-      }
+      },
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       if (sectionRef.current) {
         observer.disconnect();
@@ -85,46 +85,42 @@ export default function ResearchAreas() {
   return (
     <section ref={sectionRef} className="py-24" id="research">
       <div className="relative mb-16">
-        <h2 
+        <h2
           className={`text-4xl font-bold text-center transition-all duration-1000 ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           <span className="text-gradient">Research Areas</span>
         </h2>
-        <div 
+        <div
           className={`h-0.5 w-24 bg-blue-400 mx-auto mt-4 transition-all duration-1000 delay-300 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
           }`}
         ></div>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {researchAreas.map((area, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="glassmorphism p-6 card-hover relative transition-all duration-300 ease-out overflow-hidden group"
-            style={{ 
+            style={{
               transitionDelay: `${index * 100}ms`,
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'translateY(0)' : 'translateY(40px)'
+              transform: isVisible ? "translateY(0)" : "translateY(40px)",
             }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            ></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="flex items-center mb-4 relative">
               <div className="p-2 rounded-full bg-white/5 mr-3">
                 {area.icon}
               </div>
-              <h3 className="text-xl font-semibold text-white">
-                {area.title}
-              </h3>
+              <h3 className="text-xl font-semibold text-white">{area.title}</h3>
             </div>
             <p className="text-gray-300 relative z-10">{area.description}</p>
-            
+
             {/* 装飾的な要素 */}
             <div className="absolute -bottom-2 -right-2 w-16 h-16 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>

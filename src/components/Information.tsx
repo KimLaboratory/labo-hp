@@ -31,7 +31,7 @@ const infoItems: InfoItem[] = [
 export default function Information() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -42,13 +42,13 @@ export default function Information() {
       },
       {
         threshold: 0.1,
-      }
+      },
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       if (sectionRef.current) {
         observer.disconnect();
@@ -57,8 +57,8 @@ export default function Information() {
   }, []);
 
   return (
-    <div 
-      ref={sectionRef} 
+    <div
+      ref={sectionRef}
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
     >
       {infoItems.map((item, index) => {
@@ -68,14 +68,18 @@ export default function Information() {
           : import.meta.env.BASE_URL + item.link;
 
         return (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className={`glassmorphism p-6 transition-all duration-1000 ease-out transform ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-20"
             }`}
             style={{ transitionDelay: `${index * 150}ms` }}
           >
-            <h2 className="text-xl font-semibold mb-2 text-white">{item.title}</h2>
+            <h2 className="text-xl font-semibold mb-2 text-white">
+              {item.title}
+            </h2>
             <p className="text-xs text-gray-400 mb-2">{item.date}</p>
             <p className="text-sm text-gray-300 mb-4">{item.summary}</p>
             <button

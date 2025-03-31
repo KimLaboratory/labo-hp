@@ -49,7 +49,7 @@ const weeklySchedule: WeeklySchedule = {
 export default function ITSupportDesk() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -60,13 +60,13 @@ export default function ITSupportDesk() {
       },
       {
         threshold: 0.1,
-      }
+      },
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       if (sectionRef.current) {
         observer.disconnect();
@@ -76,7 +76,7 @@ export default function ITSupportDesk() {
 
   return (
     <div ref={sectionRef} className="space-y-16">
-      <section 
+      <section
         className={`transition-all duration-1000 ease-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
@@ -87,7 +87,7 @@ export default function ITSupportDesk() {
         </p>
       </section>
 
-      <section 
+      <section
         className={`transition-all duration-1000 ease-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
@@ -106,8 +106,8 @@ export default function ITSupportDesk() {
                 <div className="font-medium mb-3 text-white">{day}</div>
                 <div
                   className={`p-6 rounded-lg h-24 overflow-y-auto flex items-center justify-center ${
-                    slots.length > 0 
-                      ? "bg-blue-500/20 neon-border" 
+                    slots.length > 0
+                      ? "bg-blue-500/20 neon-border"
                       : "bg-white/5"
                   }`}
                 >
@@ -127,7 +127,7 @@ export default function ITSupportDesk() {
         </div>
       </section>
 
-      <section 
+      <section
         className={`transition-all duration-1000 ease-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
@@ -138,19 +138,21 @@ export default function ITSupportDesk() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {supportServices.map((service, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="glassmorphism p-6"
               style={{ transitionDelay: `${index * 100 + 300}ms` }}
             >
-              <h3 className="text-lg font-medium mb-3 text-white">{service.title}</h3>
+              <h3 className="text-lg font-medium mb-3 text-white">
+                {service.title}
+              </h3>
               <p className="text-sm text-gray-300">{service.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section 
+      <section
         className={`transition-all duration-1000 ease-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
@@ -161,8 +163,8 @@ export default function ITSupportDesk() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {supportStaff.map((staff, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="glassmorphism p-5"
               style={{ transitionDelay: `${index * 50 + 450}ms` }}
             >
