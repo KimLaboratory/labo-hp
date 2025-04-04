@@ -12,7 +12,7 @@ const infoItems: InfoItem[] = [
     title: "2025年度 シラバス",
     date: "2025-04-04",
     summary: "2025年度のシラバス概要",
-    link: "pdf/syllabus_2025.pdf",
+    link: "pdf/syllabus2025.pdf",
   },
   {
     title: "2025年度 授業時間割",
@@ -24,7 +24,7 @@ const infoItems: InfoItem[] = [
     title: "2024年度 シラバス",
     date: "2024-04-01",
     summary: "2024年度のシラバス概要",
-    link: "pdf/syllabus_2024.pdf",
+    link: "pdf/syllabus2024.pdf",
   },
   {
     title: "2024年度 授業時間割",
