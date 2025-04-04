@@ -9,6 +9,18 @@ type InfoItem = {
 
 const infoItems: InfoItem[] = [
   {
+    title: "2025年度 シラバス",
+    date: "2025-04-04",
+    summary: "2025年度のシラバス概要",
+    link: "pdf/syllabus_2025.pdf",
+  },
+  {
+    title: "2025年度 授業時間割",
+    date: "2025-04-04",
+    summary: "2025年度 文系学部の授業時間割です。",
+    link: "pdf/timetable2025.pdf",
+  },
+  {
     title: "2024年度 シラバス",
     date: "2024-04-01",
     summary: "2024年度のシラバス概要",
