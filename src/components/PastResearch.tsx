@@ -124,7 +124,7 @@ export default function PastResearch() {
     );
 
     const currentRef = sectionRef.current;
-    
+
     if (currentRef) {
       observer.observe(currentRef);
     }
