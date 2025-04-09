@@ -27,7 +27,7 @@ const researchData: Research[] = [
           "Naive Bayes ClassifierのBernoulliNBと通常ニューラルネットワーク、ニューラルネットワークの重みにベイズ推定を利用したベイジアンニューラルネットワークの3つでスパムメールの分類を行い、各モデルの正確性を検証する予定",
       },
       { name: "中野渡凌輔", title: "AI教育の活用法", content: "" },
-      { name: "山本将叶", title: "未定", content: "" },
+      { name: "山本将叶", title: "情報セキュリティ現場におけるRAG活用", content: "" },
     ],
   },
   {
