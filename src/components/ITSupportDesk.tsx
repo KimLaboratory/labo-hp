@@ -39,10 +39,10 @@ const supportServices: SupportService[] = [
 const weeklySchedule: WeeklySchedule = {
   日: [],
   月: [],
-  火: [],
+  火: ["12:10 ~ 13:00"],
   水: [],
-  木: [],
-  金: [],
+  木: ["12:10 ~ 13:00"],
+  金: ["12:10 ~ 13:00"],
   土: [],
 };
 
