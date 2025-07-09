@@ -7,6 +7,7 @@ import AboutLab from "./components/AboutLab";
 import PastResearch from "./pages/PastResearch";
 import ITSupportDesk from "./pages/ITSupportDesk";
 import Information from "./pages/Information";
+import InformationDetail from "./pages/InformationDetail";
 import ParticleBackground from "./components/ParticleBackground";
 
 function HomePage() {
@@ -47,6 +48,7 @@ export default function App() {
       <Route path="/past-research" element={<PastResearch />} />
       <Route path="/it-support-desk" element={<ITSupportDesk />} />
       <Route path="/information" element={<Information />} />
+      <Route path="/information/:id" element={<InformationDetail />} />
     </Routes>
   );
 }
