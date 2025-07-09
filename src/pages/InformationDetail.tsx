@@ -83,7 +83,9 @@ export default function InformationDetail() {
             {item.link && (
               <div className="pt-6 border-t border-gray-700">
                 <button
-                  onClick={() => window.open(link, "_blank", "noopener noreferrer")}
+                  onClick={() =>
+                    window.open(link, "_blank", "noopener noreferrer")
+                  }
                   className="flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-3 px-6 rounded-lg shadow-lg transition-all transform hover:scale-105 duration-300 neon-border"
                 >
                   <svg
@@ -117,4 +119,4 @@ export default function InformationDetail() {
       </footer>
     </main>
   );
-} 
+}

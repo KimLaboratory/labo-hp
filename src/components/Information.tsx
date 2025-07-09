@@ -52,9 +52,11 @@ export default function Information() {
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-20"
             } ${index !== infoItems.length - 1 ? "border-b border-gray-700" : ""}`}
-            style={{ 
+            style={{
               transitionDelay: `${index * 150}ms`,
-              transition: isVisible ? 'opacity 1s ease-out, transform 1s ease-out' : 'none'
+              transition: isVisible
+                ? "opacity 1s ease-out, transform 1s ease-out"
+                : "none",
             }}
             onClick={() => handleCardClick(index)}
           >
